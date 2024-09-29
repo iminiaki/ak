@@ -1,16 +1,24 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 
 const CursorFollower = () => {
-  const followerRef = useRef(null);
+  const outerRef = useRef(null);
+  const innerRef = useRef(null);
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
-    const follower = followerRef.current;
-    
+    const outer = outerRef.current;
+    const inner = innerRef.current;
+
     const moveFollower = (e) => {
-      gsap.to(follower, {
+      gsap.to(outer, {
         duration: 0.3,
+        x: e.clientX,
+        y: e.clientY,
+        ease: 'power2.out'
+      });
+      gsap.to(inner, {
+        duration: 0.1,
         x: e.clientX,
         y: e.clientY,
         ease: 'power2.out'
@@ -39,24 +47,33 @@ const CursorFollower = () => {
   }, []);
 
   useEffect(() => {
-    gsap.to(followerRef.current, {
+    gsap.to(outerRef.current, {
       duration: 0.3,
-      scale: isHovering ? 1.5 : 1,
+      scale: isHovering ? 1.2 : 1,
+      opacity: isHovering ? 1 : 0.5,
+      ease: 'power2.out'
+    });
+    gsap.to(innerRef.current, {
+      duration: 0.3,
+      // scale: isHovering ? 0.5 : 1,
+      opacity: isHovering ? 1 : 0.8,
       ease: 'power2.out'
     });
   }, [isHovering]);
 
   return (
-    <div 
-      ref={followerRef} 
-      className={`fixed flex justify-center items-center w-8 h-8 bg-fuchsia-700 rounded-full pointer-events-none z-50 mix-blend-difference
-                  ${isHovering ? 'opacity-75 border border-fuchsia-700 bg-transparent' : 'opacity-50'}`}
-      style={{ top: 0, left: 0, transform: 'translate(-50%, -50%)' }}
-    >
-        {isHovering && (
-        <div className="w-1 h-1 bg-fuchsia-700 rounded-full" />
-      )}
-    </div>
+    <>
+      <div
+        ref={outerRef}
+        className={`fixed w-8 h-8 rounded-full pointer-events-none z-50 mix-blend-difference border border-fuchsia-700`}
+        style={{ top: 0, left: 0, transform: 'translate(-50%, -50%)' }}
+      />
+      <div
+        ref={innerRef}
+        className={`fixed bg-fuchsia-700 rounded-full pointer-events-none z-50 mix-blend-difference ${isHovering ? 'w-4 h-4' : 'w-2 h-2'}`}
+        style={{ top: 0, left: 0, transform: 'translate(-50%, -50%)' }}
+      />
+    </>
   );
 };
 
