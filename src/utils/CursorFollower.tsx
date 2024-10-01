@@ -49,7 +49,8 @@ const CursorFollower = () => {
   useEffect(() => {
     gsap.to(outerRef.current, {
       duration: 0.3,
-      scale: isHovering ? 1.2 : 1,
+      width: isHovering ? '64px' : '32px',
+      height: isHovering ? '64px' : '32px',
       opacity: isHovering ? 1 : 0.5,
       ease: 'power2.out'
     });
@@ -70,7 +71,7 @@ const CursorFollower = () => {
       />
       <div
         ref={innerRef}
-        className={`fixed bg-fuchsia-700 rounded-full pointer-events-none z-50 mix-blend-difference ${isHovering ? 'w-4 h-4' : 'w-2 h-2'}`}
+        className={`fixed bg-fuchsia-700 rounded-full pointer-events-none z-50 mix-blend-difference ${isHovering ? '' : 'w-2 h-2'}`}
         style={{ top: 0, left: 0, transform: 'translate(-50%, -50%)' }}
       />
     </>

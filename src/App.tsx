@@ -33,7 +33,7 @@ function App() {
           <main>
             <Home id='home' />
             <Portfolio id='portfolio' />
-            {/* Add other sections here */}
+            
           </main>
           <Footer />
         </>
