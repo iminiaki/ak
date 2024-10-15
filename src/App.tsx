@@ -7,6 +7,7 @@ import { Body } from './sections/Body';
 import { Footer } from './sections/Footer';
 import { Header } from './sections/Header';
 import CursorFollower from './utils/CursorFollower';
+import { HashRouter } from 'react-router-dom';
 
 function App() {
   useSmoothScroll();
@@ -23,20 +24,21 @@ function App() {
         }
       }, 0);
     }
-  }, []);
+  }, [window.location.hash]); // Re-run this effect when hash changes
 
   return (
     <>
       <Body>
-        <>
+        <HashRouter>
           <Header />
           <main>
-            <Home id='home' />
-            <Portfolio id='portfolio' />
-            
+            {/* Directly render the sections */}
+            <Home />
+            <Portfolio />
+            {/* Add more sections like About, Contact here */}
           </main>
           <Footer />
-        </>
+        </HashRouter>
       </Body>
       {isDesktop && <CursorFollower />}
     </>

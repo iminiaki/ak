@@ -1,8 +1,8 @@
 import { AImage } from '../components/AImage';
 
-export const Portfolio = ({ id }) => {
+export const Portfolio = () => {
   return (
-    <section id={id} className='flex justify-between items-center gap-8'>
+    <section id="portfolio" className='flex justify-between items-center gap-8'>
       <div className='flex flex-col gap-8 w-1/2'>
         <h1 className='text-white text-8xl font-semibold'>
           Iman

@@ -1,8 +1,8 @@
 import { AImage } from '../components/AImage';
 
-export const Home = (id) => {
+export const Home = () => {
   return (
-    <section id={id} className='min-h-screen flex justify-between items-center gap-8'>
+    <section id="home" className='min-h-screen flex justify-between items-center gap-8'>
       <div className='flex flex-col gap-8 w-1/2'>
         <h1 className='text-white text-8xl font-semibold'>
           Iman
