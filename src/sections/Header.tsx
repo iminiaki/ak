@@ -1,5 +1,4 @@
-import { faHome, faBook, faPortrait, faPhone } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { useState, useEffect } from 'react';
 
 export const Header = () => {
@@ -26,15 +25,14 @@ export const Header = () => {
   };
 
   return (
-    <header className="sticky top-2 w-full flex justify-between items-center h-20 border-2 border-opacity-75 border-gray-800 rounded-2xl mt-2 p-4 z-20 backdrop-blur-3xl backdrop-brightness-50">
+    <header className="sticky top-2 w-full flex justify-between items-center h-20 rounded-2xl mt-2 p-4 z-20 backdrop-blur-3xl backdrop-brightness-50">
       <div className="max-w-20">
-        <img src="../src/assets/images/logo/AK-logo.png" alt="Logo" />
+        <img src="../images/logo/AK-logo.png" alt="Logo" />
       </div>
       <nav className="relative menu">
         <ul className="flex justify-between gap-2">
           {['#home', '#portfolio', '#about', '#contact'].map((path, index) => {
             const titles = ['Home', 'Portfolio', 'About', 'Contact'];
-            const icons = [faHome, faBook, faPortrait, faPhone];
             return (
               <li key={index} className="relative">
                 <a
@@ -44,7 +42,6 @@ export const Header = () => {
                   } hover:text-fuchsia-700 group transition-all`}
                   onClick={(e) => handleClick(e, path)}
                 >
-                  <FontAwesomeIcon icon={icons[index]} />
                   <span>{titles[index]}</span>
                 </a>
               </li>
@@ -54,7 +51,6 @@ export const Header = () => {
       </nav>
       <div>
         <button className="bg-gradient-to-tr from-blue-950 to-fuchsia-700 text-white flex items-center gap-2 py-2 px-8 rounded-xl">
-          <FontAwesomeIcon icon={faPhone} />
           Call
         </button>
       </div>

@@ -2,12 +2,14 @@ import { useEffect } from 'react';
 import useSmoothScroll from './hooks/useSmoothScroll';
 import useWindow from './hooks/useWindow';
 import { Home } from './pages/Home';
-import { Portfolio } from './pages/Portfolio';
 import { Body } from './sections/Body';
 import { Footer } from './sections/Footer';
 import { Header } from './sections/Header';
 import CursorFollower from './utils/CursorFollower';
 import { HashRouter } from 'react-router-dom';
+import TickerTape from './components/TickerTape';
+import { About } from './pages/About';
+import { Contact } from './pages/Contact';
 
 function App() {
   useSmoothScroll();
@@ -24,18 +26,25 @@ function App() {
         }
       }, 0);
     }
-  }, [window.location.hash]); // Re-run this effect when hash changes
+  }, [window.location.hash]);
 
   return (
     <>
+    
       <Body>
         <HashRouter>
           <Header />
           <main>
-            {/* Directly render the sections */}
             <Home />
-            <Portfolio />
-            {/* Add more sections like About, Contact here */}
+            <TickerTape
+              bgColor=''
+              strings={['React', 'Next JS','JavaScript', 'Typescript', 'Tailwind', 'MUI', 'Zustand', 'Redux' ,'TanStack Query']}
+              direction='left'
+              separator='۞'
+              className='rounded-xl backdrop-blur-md backdrop-brightness-50'
+            />
+            <About />
+            <Contact />
           </main>
           <Footer />
         </HashRouter>
