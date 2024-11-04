@@ -31,8 +31,8 @@ export const Header = () => {
       </div>
       <nav className="relative menu">
         <ul className="flex justify-between gap-2">
-          {['#home', '#portfolio', '#about', '#contact'].map((path, index) => {
-            const titles = ['Home', 'Portfolio', 'About', 'Contact'];
+          {['#home', '#about', '#contact'].map((path, index) => {
+            const titles = ['Home', 'About', 'Contact'];
             return (
               <li key={index} className="relative">
                 <a
@@ -49,11 +49,7 @@ export const Header = () => {
           })}
         </ul>
       </nav>
-      <div>
-        <button className="bg-gradient-to-tr from-blue-950 to-fuchsia-700 text-white flex items-center gap-2 py-2 px-8 rounded-xl">
-          Call
-        </button>
-      </div>
+          
     </header>
   );
 };

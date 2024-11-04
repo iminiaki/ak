@@ -54,7 +54,7 @@ export const Contact = () => {
   };
 
   return (
-    <>
+    <section id="contact" className='min-h-screen flex justify-between items-center gap-8'>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className='w-full max-w-md mx-auto p-6 shadow-lg rounded-lg space-y-6'
@@ -127,9 +127,7 @@ export const Contact = () => {
         >
           {isLoading ? <PuffLoader color='#a21caf' size={24}/> : 'Send'}
         </button>
-      </form>
-      
-      {formMessage.text && (
+        {formMessage.text && (
         <p 
           className={`mt-4 text-center ${
             formMessage.type === 'success' 
@@ -140,6 +138,7 @@ export const Contact = () => {
           {formMessage.text}
         </p>
       )}
-    </>
+      </form> 
+    </section>
   );
 };

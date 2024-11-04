@@ -56,8 +56,8 @@ export const About: React.FC = () => {
   }, [words.length]);
 
   return (
+    <section ref={sectionRef} id="about" className='min-h-screen flex justify-between items-center gap-8 relative'>
     <div 
-      ref={sectionRef}
       className="h-screen w-full relative"
     >
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-2xl px-6 text-center">
@@ -73,6 +73,7 @@ export const About: React.FC = () => {
         ))}
       </div>
     </div>
+    </section>
   );
 };
 
