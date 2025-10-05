@@ -4,14 +4,17 @@ export type ViewPort = "isDesktop" | "isMobile";
 
 const useWindow = () => {
   const [viewPort, setViewPort] = useState<ViewPort>(() => {
+    if (typeof window === 'undefined') return "isMobile";
     return window.innerWidth > 769 ? "isDesktop" : "isMobile";
   });
 
   useEffect(() => {
     const handleResize = () => {
-      window.innerWidth > 769
-        ? setViewPort("isDesktop")
-        : setViewPort("isMobile");
+      if (window.innerWidth > 769) {
+        setViewPort('isDesktop');
+      } else {
+        setViewPort('isMobile');
+      }
     };
     handleResize();
     window.addEventListener("resize", handleResize);

@@ -1,5 +1,7 @@
+"use client";
 
 import { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
 
 export const Header = () => {
   const [activeLink, setActiveLink] = useState('#home');
@@ -26,7 +28,7 @@ export const Header = () => {
   return (
     <header className="sticky top-2 w-full flex justify-between items-center h-20 rounded-2xl mt-2 p-4 z-20 backdrop-blur-3xl backdrop-brightness-50">
       <div className="max-w-20">
-        <img src="../images/logo/AK-logo.png" alt="Logo" />
+        <img src="/images/logo/AK-logo.png" alt="Logo" />
       </div>
       <nav className="relative menu">
         <ul className="flex justify-between gap-2">
@@ -48,6 +50,11 @@ export const Header = () => {
           })}
         </ul>
       </nav>
+      <div className="hidden md:block">
+        <a href="#contact" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleClick(e, '#contact')}>
+          <Button variant="default">Contact</Button>
+        </a>
+      </div>
           
     </header>
   );
