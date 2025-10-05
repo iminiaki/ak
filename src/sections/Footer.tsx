@@ -25,7 +25,7 @@ export const Footer = () => {
               <FontAwesomeIcon icon={faEnvelope} className='text-white hover:text-fuchsia-800 hover:animate-jello' />
             </a>
           </div>
-          <p className='text-white text-sm'>All Rights Reserved © 2024</p>
+          <p className='text-white text-sm'>All Rights Reserved © 2025</p>
         </div>
       </div>
     </div>

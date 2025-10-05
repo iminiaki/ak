@@ -20,7 +20,6 @@ export const Header = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Manually update the hash in the URL
     window.history.pushState(null, '', path);
   };
 
