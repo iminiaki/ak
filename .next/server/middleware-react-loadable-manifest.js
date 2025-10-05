@@ -1,1 +1,0 @@
-self.__REACT_LOADABLE_MANIFEST="{\"app/page.tsx -> ../utils/CursorFollower\":{\"id\":\"app/page.tsx -> ../utils/CursorFollower\",\"files\":[\"static/chunks/_app-pages-browser_src_utils_CursorFollower_tsx.js\"]}}"
