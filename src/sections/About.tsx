@@ -1,66 +1,84 @@
-"use client";
-import React, { useEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+'use client'
 
-gsap.registerPlugin(ScrollTrigger);
+import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { SectionHeading } from '../components/SectionHeading'
+import { Card, CardContent } from '@/components/ui/card'
+import { useTranslations } from '@/src/contexts/LocaleContext'
 
-const About: React.FC = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+gsap.registerPlugin(ScrollTrigger)
 
-  const text = `I'm Iman Akrami, a passionate 🕸️ web developer with a background in 🖥️ computer science and over 6 years of hands-on experience. My journey began at ParsOnline, where I entered the tech world as a 📞 call operator. I then transitioned into 🧑‍💻 IT and networking at Zoraq, which laid a strong technical foundation for my future growth.
-
-I discovered my passion for web development while working at Arianahad, where I started building with  WordPress and was introduced to ⚛️ React. Since then, I’ve deepened my expertise across both technologies, working with agencies like Arsamtech and Fixso, and later joining QuestIdea and Lastaar — where I now specialize in 🎨 frontend development.
-
-Alongside my full-time roles, I’ve led numerous freelance projects and honed my skills in 🔍 SEO, helping businesses build high-performing, optimized websites. My diverse background enables me to adapt quickly, collaborate effectively, and choose the right tools to deliver scalable, user-focused solutions. 🚀`;
-
-  const words = text.split(/\s+/); // Splitting the text into an array of words
+export default function About() {
+  const t = useTranslations()
+  const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    if (!sectionRef.current) return;
+    if (!sectionRef.current) return
 
-    const triggerElement = sectionRef.current;
+    const ctx = gsap.context(() => {
+      gsap.from('[data-about="heading"]', {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        scrollTrigger: { trigger: sectionRef.current, start: 'top 80%' },
+      })
 
-    // Create a ScrollTrigger instance
-    const scrollTrigger = ScrollTrigger.create({
-      trigger: triggerElement,
-      start: 'top top',
-      end: `+=${words.length * 20}`, // Dynamic end value based on the number of words
-      pin: true,
-      scrub: 1,
-      onUpdate: (self) => {
-        // Calculate the current word index based on scroll progress
-        const newIndex = Math.floor(self.progress * words.length);
-        setCurrentWordIndex(newIndex);
-      },
-    });
+      gsap.from('[data-about="card"]', {
+        y: 40,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        scrollTrigger: { trigger: '[data-about="grid"]', start: 'top 85%' },
+      })
 
-    // Cleanup on unmount or when the component is updated
-    return () => {
-      scrollTrigger.kill();
-    };
-  }, [words.length]);
+      gsap.from('[data-about="bio"]', {
+        x: -30,
+        opacity: 0,
+        duration: 0.8,
+        scrollTrigger: { trigger: '[data-about="bio"]', start: 'top 85%' },
+      })
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
 
   return (
-    <section ref={sectionRef} id="about" className="min-h-screen flex justify-center items-center gap-8 relative pt-24 md:pt-0">
-      <div className="flex justify-center items-center w-full h-full px-6 text-center">
-        <div className="max-w-2xl md:max-w-lg">
-          {words.map((word, index) => (
-            <span
-              key={index}
-              className={`inline-block transition-opacity duration-300 text-white text-lg mx-1 ${
-                index <= currentWordIndex ? 'opacity-100' : 'opacity-10'
-              }`}
-            >
-              {word}
-            </span>
-          ))}
+    <section ref={sectionRef} id="about" className="section-padding">
+      <div className="section-container space-y-16">
+        <div data-about="heading">
+          <SectionHeading
+            label={t.about.label}
+            title={t.about.title}
+            description={t.about.description}
+          />
+        </div>
+
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
+          <div data-about="bio" className="lg:col-span-2 space-y-6">
+            <p className="text-muted-foreground leading-relaxed">{t.about.bio1}</p>
+            <p className="text-muted-foreground leading-relaxed">{t.about.bio2}</p>
+            <blockquote className="border-s-2 border-primary ps-4 italic text-foreground/80">
+              &ldquo;{t.about.quote}&rdquo;
+            </blockquote>
+          </div>
+
+          <div data-about="grid" className="lg:col-span-3 grid sm:grid-cols-2 gap-4">
+            {t.about.highlights.map(({ title, description }) => (
+              <Card
+                key={title}
+                data-about="card"
+                className="border-border/50 bg-card/40 backdrop-blur-sm hover:border-primary/20 transition-colors"
+              >
+                <CardContent className="p-6 space-y-2">
+                  <h3 className="font-display font-semibold">{title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </section>
-  );
-};
-
-export default About;
-
+  )
+}

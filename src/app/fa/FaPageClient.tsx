@@ -3,9 +3,9 @@
 import { LocaleProvider } from '@/src/contexts/LocaleContext'
 import { PortfolioPage } from '@/src/components/PortfolioPage'
 
-export default function Page() {
+export default function FaPageClient() {
   return (
-    <LocaleProvider locale="en">
+    <LocaleProvider locale="fa">
       <PortfolioPage />
     </LocaleProvider>
   )

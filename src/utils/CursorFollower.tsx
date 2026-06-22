@@ -66,12 +66,12 @@ const CursorFollower = () => {
     <>
       <div
         ref={outerRef}
-        className={`fixed w-8 h-8 rounded-full pointer-events-none z-50 mix-blend-difference border border-fuchsia-700`}
+        className={`fixed w-8 h-8 rounded-full pointer-events-none z-50 border border-fuchsia-700`}
         style={{ top: 0, left: 0, transform: 'translate(-50%, -50%)' }}
       />
       <div
         ref={innerRef}
-        className={`fixed bg-fuchsia-700 rounded-full pointer-events-none z-50 mix-blend-difference ${isHovering ? '' : 'w-2 h-2'}`}
+        className={`fixed bg-fuchsia-700 rounded-full pointer-events-none z-50 ${isHovering ? '' : 'w-2 h-2'}`}
         style={{ top: 0, left: 0, transform: 'translate(-50%, -50%)' }}
       />
     </>
