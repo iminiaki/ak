@@ -144,39 +144,51 @@ export const en: Translations = {
     label: 'Work',
     title: 'Selected projects',
     description:
-      'A sample of the kind of work I deliver — from product UIs to optimized business websites.',
+      'Recent open-source projects from my GitHub — sorted by latest activity.',
     projects: [
       {
-        title: 'E-Commerce Platform',
+        title: 'Nextaar',
         description:
-          'A full-featured online store built with React and TypeScript, featuring cart management, payment integration, and responsive design.',
-        tags: ['React', 'TypeScript', 'Tailwind'],
+          'A modern multilingual web app built with Next.js 15, Payload CMS, and PostgreSQL.',
+        tags: ['Next.js', 'Payload CMS', 'TypeScript'],
+        href: 'https://github.com/iminiaki/Nextaar',
         featured: true,
       },
       {
-        title: 'Agency Portfolio Suite',
+        title: 'woostore',
         description:
-          'Custom WordPress themes and React components for multiple agency clients with SEO optimization.',
-        tags: ['WordPress', 'React', 'SEO'],
-      },
-      {
-        title: 'Dashboard Application',
-        description:
-          'An analytics dashboard with real-time data visualization, built for a SaaS product team.',
-        tags: ['Next.js', 'Charts', 'API'],
+          'A headless Next.js storefront integrated with WordPress and WooCommerce APIs.',
+        tags: ['Next.js', 'WooCommerce', 'TypeScript'],
+        href: 'https://github.com/iminiaki/woostore',
         featured: true,
       },
       {
-        title: 'Freelance Business Sites',
+        title: 'Lastore',
         description:
-          'High-performing, SEO-optimized websites for small businesses — from design to deployment.',
-        tags: ['WordPress', 'SEO', 'Performance'],
+          'A Next.js e-commerce storefront with Radix UI components and a modular app structure.',
+        tags: ['Next.js', 'Radix UI', 'TypeScript'],
+        href: 'https://github.com/iminiaki/Lastore',
       },
       {
-        title: 'Component Library',
+        title: 'tokena',
         description:
-          'A reusable UI component system with shadcn/ui and Tailwind, used across multiple projects.',
-        tags: ['shadcn/ui', 'Tailwind', 'Storybook'],
+          'A Next.js site with GSAP animations, smooth scrolling, and theme support.',
+        tags: ['Next.js', 'GSAP', 'Tailwind'],
+        href: 'https://github.com/iminiaki/tokena',
+      },
+      {
+        title: 'string-translator',
+        description:
+          'A React + TypeScript app for managing keyword translations with a drag-and-drop dashboard.',
+        tags: ['React', 'Vite', 'TypeScript'],
+        href: 'https://github.com/iminiaki/string-translator',
+      },
+      {
+        title: 'rc-gram',
+        description:
+          'A React client app with TanStack Query, Redux Toolkit, and JWT-based authentication.',
+        tags: ['React', 'TanStack Query', 'Redux'],
+        href: 'https://github.com/iminiaki/rc-gram',
       },
     ],
   },

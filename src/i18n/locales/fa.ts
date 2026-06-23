@@ -144,39 +144,51 @@ export const fa: Translations = {
     label: 'نمونه‌کار',
     title: 'پروژه‌های منتخب',
     description:
-      'نمونه‌ای از کارهایی که تحویل می‌دهم — از UI محصول تا وب‌سایت‌های بهینه کسب‌وکار.',
+      'پروژه‌های متن‌باز اخیر از گیت‌هاب من — بر اساس آخرین فعالیت.',
     projects: [
       {
-        title: 'پلتفرم فروشگاه آنلاین',
+        title: 'Nextaar',
         description:
-          'فروشگاه آنلاین کامل با React و TypeScript، شامل سبد خرید، پرداخت و طراحی responsive.',
-        tags: ['React', 'TypeScript', 'Tailwind'],
+          'اپلیکیشن وب چندزبانه با Next.js 15، Payload CMS و PostgreSQL.',
+        tags: ['Next.js', 'Payload CMS', 'TypeScript'],
+        href: 'https://github.com/iminiaki/Nextaar',
         featured: true,
       },
       {
-        title: 'مجموعه نمونه‌کار آژانس',
+        title: 'woostore',
         description:
-          'تم‌های WordPress سفارشی و کامپوننت‌های React برای چندین مشتری آژانس با بهینه‌سازی SEO.',
-        tags: ['WordPress', 'React', 'SEO'],
-      },
-      {
-        title: 'اپلیکیشن داشبورد',
-        description:
-          'داشبورد تحلیلی با visualization داده real-time، ساخته‌شده برای تیم SaaS.',
-        tags: ['Next.js', 'Charts', 'API'],
+          'فروشگاه headless با Next.js متصل به APIهای WordPress و WooCommerce.',
+        tags: ['Next.js', 'WooCommerce', 'TypeScript'],
+        href: 'https://github.com/iminiaki/woostore',
         featured: true,
       },
       {
-        title: 'وب‌سایت‌های فریلنس',
+        title: 'Lastore',
         description:
-          'وب‌سایت‌های پرکارایی و SEO-optimized برای کسب‌وکارهای کوچک — از طراحی تا deploy.',
-        tags: ['WordPress', 'SEO', 'Performance'],
+          'فروشگاه آنلاین Next.js با کامپوننت‌های Radix UI و ساختار ماژولار.',
+        tags: ['Next.js', 'Radix UI', 'TypeScript'],
+        href: 'https://github.com/iminiaki/Lastore',
       },
       {
-        title: 'کتابخانه کامپوننت',
+        title: 'tokena',
         description:
-          'سیستم UI component قابل استفاده مجدد با shadcn/ui و Tailwind در چندین پروژه.',
-        tags: ['shadcn/ui', 'Tailwind', 'Storybook'],
+          'سایت Next.js با انیمیشن‌های GSAP، اسکرول نرم و پشتیبانی از تم.',
+        tags: ['Next.js', 'GSAP', 'Tailwind'],
+        href: 'https://github.com/iminiaki/tokena',
+      },
+      {
+        title: 'string-translator',
+        description:
+          'اپ React + TypeScript برای مدیریت ترجمه کلمات کلیدی با داشبورد drag-and-drop.',
+        tags: ['React', 'Vite', 'TypeScript'],
+        href: 'https://github.com/iminiaki/string-translator',
+      },
+      {
+        title: 'rc-gram',
+        description:
+          'کلاینت React با TanStack Query، Redux Toolkit و احراز هویت JWT.',
+        tags: ['React', 'TanStack Query', 'Redux'],
+        href: 'https://github.com/iminiaki/rc-gram',
       },
     ],
   },
