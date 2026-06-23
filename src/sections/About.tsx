@@ -20,32 +20,25 @@ export default function About() {
     if (!sectionRef.current) return
 
     const ctx = gsap.context(() => {
-      gsap.from('[data-about="heading"]', {
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        immediateRender: false,
-        scrollTrigger: { trigger: sectionRef.current, start: 'top 80%' },
-      })
+      const reveal = (
+        targets: gsap.TweenTarget,
+        vars: gsap.TweenVars,
+        trigger: gsap.DOMTarget,
+        start = 'top 85%'
+      ) => {
+        gsap.from(targets, {
+          ...vars,
+          scrollTrigger: {
+            trigger,
+            start,
+            once: true,
+          },
+        })
+      }
 
-      gsap.from('[data-about="card"]', {
-        y: 40,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.1,
-        immediateRender: false,
-        scrollTrigger: { trigger: '[data-about="grid"]', start: 'top 85%' },
-      })
-
-      gsap.from('[data-about="bio"]', {
-        x: -30,
-        opacity: 0,
-        duration: 0.8,
-        immediateRender: false,
-        scrollTrigger: { trigger: '[data-about="bio"]', start: 'top 85%' },
-      })
-
-      ScrollTrigger.refresh()
+      reveal('[data-about="heading"]', { y: 40, opacity: 0, duration: 0.8 }, sectionRef.current!, 'top 80%')
+      reveal('[data-about="card"]', { y: 40, opacity: 0, duration: 0.6, stagger: 0.1 }, '[data-about="grid"]')
+      reveal('[data-about="bio"]', { x: -30, opacity: 0, duration: 0.8 }, '[data-about="bio"]')
     }, sectionRef)
 
     return () => ctx.revert()

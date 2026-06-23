@@ -95,7 +95,7 @@ export const en: Translations = {
       },
       {
         period: 'Feb 2023 — Aug 2025',
-        location: 'Tehran',
+        location: 'Muscat',
         role: 'Front-End Developer',
         company: 'Lastaar — Business Development Services',
         description:

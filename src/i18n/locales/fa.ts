@@ -95,7 +95,7 @@ export const fa: Translations = {
       },
       {
         period: 'بهمن ۱۴۰۱ — مرداد ۱۴۰۴',
-        location: 'تهران',
+        location: 'مسقط',
         role: 'توسعه‌دهنده فرانت‌اند',
         company: 'Lastaar — Business Development Services',
         description:
