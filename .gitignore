@@ -1,5 +1,6 @@
 .next
 out
+out.zip
 node_modules
 .DS_Store
 *.tsbuildinfo

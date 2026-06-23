@@ -8,7 +8,7 @@ interface TickerTapeProps {
 }
 
 const TickerTape: React.FC<TickerTapeProps> = ({
-  strings = ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'GSAP', 'shadcn/ui'],
+  strings = ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'GSAP', 'Zustand', 'Redux', 'shadcn/ui', 'TanStack Query', 'Shopify', 'WordPress', 'REST APIs', 'SEO'],
   className,
 }) => {
   const items = [...strings, ...strings]
@@ -18,7 +18,7 @@ const TickerTape: React.FC<TickerTapeProps> = ({
       <div className="flex animate-marquee whitespace-nowrap">
         {items.map((text, i) => (
           <React.Fragment key={i}>
-            <span className="mx-8 text-muted-foreground text-sm font-medium uppercase tracking-[0.15em]">
+            <span className="mx-8 font-display text-muted-foreground text-sm font-medium uppercase tracking-[0.15em]">
               {text}
             </span>
             <span className="text-[#a30098] text-xs">◆</span>

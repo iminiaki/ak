@@ -3,9 +3,12 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Code2, Globe2, Layers, Zap } from 'lucide-react'
+import { HighlightCard } from '../components/HighlightCard'
 import { SectionHeading } from '../components/SectionHeading'
-import { Card, CardContent } from '@/components/ui/card'
 import { useTranslations } from '@/src/contexts/LocaleContext'
+
+const HIGHLIGHT_ICONS = [Code2, Layers, Zap, Globe2] as const
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -21,6 +24,7 @@ export default function About() {
         y: 40,
         opacity: 0,
         duration: 0.8,
+        immediateRender: false,
         scrollTrigger: { trigger: sectionRef.current, start: 'top 80%' },
       })
 
@@ -29,6 +33,7 @@ export default function About() {
         opacity: 0,
         duration: 0.6,
         stagger: 0.1,
+        immediateRender: false,
         scrollTrigger: { trigger: '[data-about="grid"]', start: 'top 85%' },
       })
 
@@ -36,8 +41,11 @@ export default function About() {
         x: -30,
         opacity: 0,
         duration: 0.8,
+        immediateRender: false,
         scrollTrigger: { trigger: '[data-about="bio"]', start: 'top 85%' },
       })
+
+      ScrollTrigger.refresh()
     }, sectionRef)
 
     return () => ctx.revert()
@@ -63,18 +71,17 @@ export default function About() {
             </blockquote>
           </div>
 
-          <div data-about="grid" className="lg:col-span-3 grid sm:grid-cols-2 gap-4">
-            {t.about.highlights.map(({ title, description }) => (
-              <Card
-                key={title}
-                data-about="card"
-                className="border-border/50 bg-card/40 backdrop-blur-sm hover:border-primary/20 transition-colors"
-              >
-                <CardContent className="p-6 space-y-2">
-                  <h3 className="font-display font-semibold">{title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{description}</p>
-                </CardContent>
-              </Card>
+          <div data-about="grid" className="lg:col-span-3 grid sm:grid-cols-2 gap-4 lg:gap-5">
+            {t.about.highlights.map(({ title, description }, index) => (
+              <div key={title} data-about="card" className="h-full">
+                <HighlightCard
+                  index={index}
+                  title={title}
+                  description={description}
+                  icon={HIGHLIGHT_ICONS[index] ?? Code2}
+                  className="h-full"
+                />
+              </div>
             ))}
           </div>
         </div>

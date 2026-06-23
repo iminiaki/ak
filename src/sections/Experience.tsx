@@ -52,14 +52,16 @@ export function Experience() {
         <div className="relative">
           <div
             ref={lineRef}
-            className="absolute start-[7px] lg:start-[11px] top-2 bottom-2 w-px bg-gradient-to-b from-primary via-primary/50 to-transparent"
+            className="absolute top-2 bottom-2 w-px -translate-x-1/2 bg-gradient-to-b from-primary via-primary/50 to-transparent start-[7px] lg:start-[8px]"
           />
 
           <div className="space-y-8">
             {t.experience.items.map(({ period, location, role, company, description, tags }) => (
-              <div key={`${company}-${period}`} data-exp="item" className="relative ps-8 lg:ps-12">
-                <div className="absolute start-0 top-1.5 h-3.5 w-3.5 lg:h-4 lg:w-4 rounded-full border-2 border-primary bg-background" />
-                <div className="space-y-2">
+              <div key={`${company}-${period}`} data-exp="item" className="flex gap-4 lg:gap-6">
+                <div className="relative z-10 flex w-3.5 shrink-0 justify-center lg:w-4">
+                  <div className="mt-1 size-3.5 rounded-full border-2 border-primary bg-background lg:mt-1.5 lg:size-4" />
+                </div>
+                <div className="min-w-0 flex-1 space-y-2">
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                     <span className="text-primary text-sm font-medium">{period}</span>
                     <span className="text-muted-foreground hidden sm:inline">·</span>
