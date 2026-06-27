@@ -48,14 +48,44 @@ export function Header() {
       })
     })
 
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    return () => ctx.revert()
+  }, [])
+
+  useEffect(() => {
+    const sectionIds = navItems.map(({ path }) => path.slice(1))
+    const offset = 120
+
+    const updateActiveSection = () => {
+      const scrollPosition = window.scrollY + offset
+      let current = '#home'
+
+      for (const id of sectionIds) {
+        const section = document.getElementById(id)
+        if (!section) continue
+
+        const top = section.getBoundingClientRect().top + window.scrollY
+        if (top <= scrollPosition) {
+          current = `#${id}`
+        }
+      }
+
+      setActiveLink((prev) => (prev === current ? prev : current))
+    }
+
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20)
+      updateActiveSection()
+    }
+
+    updateActiveSection()
     window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', updateActiveSection, { passive: true })
 
     return () => {
-      ctx.revert()
       window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', updateActiveSection)
     }
-  }, [])
+  }, [navItems])
 
   const handleClick = (path: string) => {
     setActiveLink(path)
